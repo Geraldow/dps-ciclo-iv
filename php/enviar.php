@@ -10,7 +10,7 @@ if($_SERVER['REQUEST_METHOD']===POST){
     $destinatario = '71992956@certus.edu.pe';
     
     #PASO #3: Indicar el asunto del mensaje
-    $asunto = 'MENSAJE DE LOCALHOST DE LA PÁGINA WEB'
+    $asunto = 'MENSAJE DE LOCALHOST DE LA PÁGINA WEB';
 
     #PASO #4: Diseñar el cuerpo del mensaje
     $cuerpo = 'Nombres: '.$nombre. '\n';
