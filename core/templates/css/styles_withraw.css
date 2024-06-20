@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-primario: #eed49d;
+    --sombras: #122007;
+    --bordes: #cee9be;
+    --contenido: #e7e4df;
+    --color-titulos: #282d31;
+    --color-parrafos: #53575a;
+    --color-boton: #b6ad9f;
+    --color-hover: #9e927f;
+    --color-input: #a8d4e0;
+    --color-fondo-form: #34495e; /* Nuevo color de fondo */
+}
+
+form {
+    background-color: var(--bordes); /* Fondo contrastante */
+    width: 30%;
+    border: 5px solid var(--color-fondo-form);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    padding: 1em;
+    border-radius: .5em;
+}
+
+.title-form {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin-top: .5em;
+    color: var(--color-fondo-form); /* Ajustar color para mejor contraste */
+}
+
+label {
+    color: var(--color-fondo-form);
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+.legaltext {
+    color: var(--contenido);
+}
+
+.legaltext:hover {
+    color: var(--contenido);
+    font-weight: bold;
+}
+
+input {
+    border: 1px solid var(--color-input);
+    border-radius: .5em;
+    display: block;
+    margin: .8em auto;
+    padding: .5em;
+    width: 85%;
+    background-color: var(--contenido); /* Fondo blanco para inputs */
+    color: var(--color-parrafos); /* Color de texto de los inputs */
+}
+select {
+    border: 1px solid var(--color-input);
+    border-radius: .5em;
+    display: block;
+    margin: .8em auto;
+    padding: .5em;
+    width: 85%;
+    background-color: var(--contenido); /* Fondo blanco para inputs */
+    color: var(--color-parrafos); /* Color de texto de los inputs */
+}
+
+.boton {
+    border: 1px solid black;
+    background-color: black;
+    color: white;
+    height: 3em;
+    font-family: 'Roboto', sans-serif;
+    border-radius: .5em;
+    cursor: pointer;
+}
+
+.boton:hover {
+    background-color: var(--bordes);
+    transition: background-color .5s ease-in-out;
+    border: 5px solid var(--color-fondo-form);
+}
+
+.boton-2 {
+    border: 1px solid var(--color-input);
+    border-radius: .5em;
+    display: block;
+    margin: .8em auto;
+    padding: .5em;
+    width: 20%;
+    background-color: var(--contenido); /* Fondo blanco para inputs */
+    color: var(--color-parrafos);
+    text-align: center; /
+}
+
+.boton-2:hover {
+    background-color: var(--bordes);
+    transition: background-color .5s ease-in-out;
+    border: 2px solid var(--color-fondo-form);
+}
