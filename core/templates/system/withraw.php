@@ -1,10 +1,37 @@
 <?php
 
-require 'database.php';
+require '../auth/database.php';
+
+if( $_SERVER['REQUEST_METHOD'] === 'POST' ){
+    $amount = $_POST['amount'];
+    $coin = $_POST['coin'];
+
+    if($coin == 'pen'){
+        $sql_update = 
+        "UPDATE accounts 
+        SET balance_pen = balance_pen - ?
+        WHERE id = 1";
+    } else {
+        $sql_update = 
+            "UPDATE accounts 
+            SET balance_usd = balance_usd - ?
+            WHERE id = 1";
+    }
+
+    $calculate = $connection -> prepare($sql_update);
 
 
+    $calculate->bind_param("d",$amount);
+
+    if ( $calculate -> execute()){
+        echo "Withraw has been execute successfully";
+    } else{
+        echo "¡ERROR! Withraw hasn't been execute";
+    }
+}
 
 ?>
+
 
 <h1>Module of Withraw</h1>
 <form action="withraw.php" method='POST'>
@@ -18,3 +45,4 @@ require 'database.php';
     </select>
     <input type="submit" value="Make withraw">
 </form>
+<a href="../home.php">Back</a>

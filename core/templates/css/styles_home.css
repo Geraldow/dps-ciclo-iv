@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-primario: #eed49d;
+    --sombras: #122007;
+    --bordes: #cee9be;
+    --contenido: #e7e4df;
+    --color-titulos: #282d31;
+    --color-parrafos: #53575a;
+    --color-boton: #b6ad9f;
+    --color-hover: #9e927f;
+    --color-input: #a8d4e0;
+    --color-fondo-form: #34495e; /* Nuevo color de fondo */
+}
+
+/*INICIO DE MENÚ*/
+
+header {
+    background-color: var(--bordes);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 1px 4px var(--sombras);
+}
+
+.menu {
+    width: 85%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.loguito {
+    height: 60px;
+}
+
+.btn-menu {
+    display: none;
+}
+
+.enlaces a {
+    color: var(--color-parrafos);
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1em;
+    text-decoration: none;
+    padding: 1em;
+}
+
+.enlaces a:hover {
+    color: white;
+}
+
+.headroom {
+    will-change: transform;
+    transition: transform 200ms linear;
+}
+
+.headroom--pinned {
+    transform: translateY(0%);
+}
+
+headroom--unpinned {
+    transform: translateY(-100%);
+}
+
+/*RESPONSIVE WEB DESIGN CON MEDIA QUERY*/
+@media screen and (max-width: 1023px) {
+    .menu {
+        flex-direction: column;
+    }
+
+    .logo {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .btn-menu {
+        display: block;
+        text-decoration: none;
+        color: var(--color-parrafos);
+        font-size: 0.8em;
+        margin-top: 0.8em;
+    }
+
+    .btn-menu:hover {
+        color: white;
+    }
+
+    .enlaces {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        font-size: 0.9em;
+    }
+}
+
+/* Esconder el botón de menú en pantallas de escritorio */
+@media screen and (min-width: 1024px) {
+    .btn-menu {
+        display: none;
+    }
+}
+
+/*FIN DE MENÚ*/

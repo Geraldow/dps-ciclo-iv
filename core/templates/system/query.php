@@ -1,25 +1,28 @@
 <?php
 
-require 'database.php';
+require '../auth/database.php';
 
+$sql_query = 
+    "SELECT balance_pen, balance_usd 
+    FROM accounts 
+    WHERE id = 1";
 
+$sql_query_result = $connection -> query ($sql_query);
+
+if($sql_query_result && $sql_query_result -> num_rows > 0){
+    $account_balance = $sql_query_result -> fetch_assoc();
+} else {
+    $account_balance = null;
+}
 
 ?>
 
 <h1>Module of Query</h1>
-<p>Balance in PEN: </p>
-<p>Balance in USD: </p>
+<?php if ($account_balance): ?>
+    <p>Balance in PEN: <?php echo $account_balance ['balance_pen']; ?> </p> 
+    <p>Balance in USD: <?php echo $account_balance ['balance_usd']; ?> </p>
+<?php else: ?>
+    <p>No se encontró la cuenta o no tiene saldo.</p>
+<?php endif; ?>
 
-
-
-<form action="query.php" method='POST'>
-    <label for="number">Amount</label>
-    <input type="number" name="amount" id="amount" required>
-    <br><br>
-    <label for="coin">Coin</label>
-    <select name="coin" id="coin">
-        <option value="pen">PEN</option>
-        <option value="usd">USD</option>
-    </select>
-    <input type="submit" value="Make clue">
-</form>
+<a href="../home.php">Back</a>

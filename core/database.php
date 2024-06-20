@@ -2,14 +2,16 @@
 
 $server = "localhost";
 $username = "root";
-$password = "root";
-$database = "sistema";
+$password = "";
+$database = "cajero";
+$port = "3309";
 
-$connection = new mysql(
+$connection = new mysqli(
     $server,
     $username,
     $password,
-    $database
+    $database,
+    $port
 );
 
 if($connection -> connect_error) {
