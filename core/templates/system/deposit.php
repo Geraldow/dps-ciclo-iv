@@ -18,6 +18,7 @@ if( $_SERVER['REQUEST_METHOD'] === POST ){
 }
 
 ?>
+<link rel="stylesheet" href="./css/system.css">
 
 <h1>Module of Deposit</h1>
 <form action="deposit.php" method='POST'>

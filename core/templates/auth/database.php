@@ -10,12 +10,12 @@ $connection = new mysql(
     $username,
     $password,
     $database
-)
+);
 
 if($connection -> connect_error) {
     echo ("Bad connection");
 } else {
-    echo ("Connection successfully")
+    echo ("Connection successfully");
 }
 
 

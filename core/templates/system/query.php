@@ -5,6 +5,7 @@ require 'database.php';
 
 
 ?>
+<link rel="stylesheet" href="./css/system.css">
 
 <h1>Module of Query</h1>
 <p>Balance in PEN: </p>

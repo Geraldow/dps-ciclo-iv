@@ -16,5 +16,5 @@ if ( $_SERVER['REQUEST_METHOD'] === 'POST'){
     echo "Salario bruto: " .$salary1. "<br>";
     echo "Impuesto: " .$tax. "<br>";
     echo "Salario neto: " .$salary2. "<br>";
-}
+}   
 ?>

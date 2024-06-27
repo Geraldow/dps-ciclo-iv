@@ -6,7 +6,7 @@ if( $_SERVER['REQUEST_METHOD'] === POST ){}
 
 
 ?>
-
+<link rel="stylesheet" href="./css/system.css">
 <h1>Module of Change clue</h1>
 
 <form action="clue.php" method="POST">

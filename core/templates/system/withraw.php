@@ -5,6 +5,7 @@ require 'database.php';
 
 
 ?>
+<link rel="stylesheet" href="./css/system.css">
 
 <h1>Module of Withraw</h1>
 <form action="withraw.php" method='POST'>
