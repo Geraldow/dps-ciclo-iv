@@ -1,8 +1,8 @@
 <?php
 
-require 'database.php';
+require '../auth/database.php';
 
-if( $_SERVER['REQUEST_METHOD'] === POST ){}
+if( $_SERVER['REQUEST_METHOD'] === 'POST' ){}
 
 
 ?>
@@ -20,3 +20,4 @@ if( $_SERVER['REQUEST_METHOD'] === POST ){}
 
     <input type="submit" value="Change clue">
 </form>
+<a href="../home.php">Back</a>
