@@ -7,57 +7,98 @@ if( $_SERVER['REQUEST_METHOD'] === 'POST' ){
     $coin = $_POST['coin'];
 
     if($coin == 'pen'){
-        $sql_update = 
-        "UPDATE accounts 
-        SET balance_pen = balance_pen + ?
-        WHERE id = 1";
+        $sql = "UPDATE accounts 
+                SET balance_pen = balance_pen = ?
+                WHERE id = 1";
     } else {
-        $sql_update = 
-            "UPDATE accounts 
-            SET balance_usd = balance_usd + ?
-            WHERE id = 1";
+        $sql = "UPDATE accounts 
+                SET balance_usd = balance_pen = ?
+                WHERE id = 1";
     }
 
-    $calculate = $connection -> prepare($sql_update);
-
-
-    $calculate->bind_param("d",$amount);
-
-    if ( $calculate -> execute()){
+    $calc = $connection -> prepare($sql);
+    $calc ->bind_param("d", $amount);
+    
+    if($calc->execute()){
         echo "Deposit has been execute successfully";
-    } else{
-        echo "¡ERROR! Deposit has'nt been execute";
+    }else{
+        echo "¡ERROR! Deposit hasn't been execute";
     }
 }
 
 ?>
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/812c8ee19a.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700&family=Roboto:wght@400;700&display=swap"
-        rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/styles_deposit.css">
-    <title>Document</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        .sidebar {
+            background-color: #2c3e50;
+            min-height: 100vh;
+        }
+        .sidebar h1 {
+            color: #ecf0f1;
+            padding: 20px;
+        }
+        .nav-button {
+            color: #ecf0f1;
+            background-color: #34495e;
+            border: none;
+            width: 100%;
+            text-align: left;
+            padding: 15px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .nav-button:hover {
+            background-color: #1abc9c;
+        }
+        .content {
+            padding: 40px;
+        }
+    </style>
 </head>
 <body>
-    <h1 class="title-form">Module of Deposit</h1>
-    <form action="deposit.php" method='POST' class="">
-        <label for="number">Amount</label>
-        <input type="number" name="amount" id="amount" required>
-        <br><br>
-        <label for="coin">Coin</label>
-        <select name="coin" id="coin">
-            <option value="pen">PEN</option>
-            <option value="usd">USD</option>
-        </select>
-        <input type="submit" value="Make deposit" class="boton">
-        <a href="../home.php" class="boton-2">Back</a>
-    </form>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-3 col-lg-2 d-md-block sidebar">
+                <div class="sidebar-sticky">
+                    <h1>System</h1>
+                    <button id="deposit-button" class="nav-button"><a href="deposit.php">Deposit</a></button>
+                    <button id="query-button" class="nav-button"><a href="query.php">Query</a></button>
+                    <button id="withdraw-button" class="nav-button"><a href="withraw.php">Withdraw</a></button>
+                    <button id="clue-button" class="nav-button">Clue</button>
+                </div>
+            </nav>
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 content">
+                <h1>Module of Deposit</h1>
+                <form action="deposit.php" method="POST">
+                    <div class="form-group">
+                        <label for="amount">Amount</label>
+                        <input type="number" class="form-control" name="amount" id="amount" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="coin">Coin</label>
+                        <select name="coin" id="coin" class="form-control">
+                            <option value="pen">PEN</option>
+                            <option value="usd">USD</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Make deposit</button>
+                </form>
+            </main>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

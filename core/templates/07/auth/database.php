@@ -2,22 +2,23 @@
 
 $server = "localhost";
 $username = "root";
-$password = "root";
-$database = "sistema";
+$password = "";
+$database = "cashier";
+$port = 3306;
 
-$connection = new mysql(
+$connection = new mysqli(
     $server,
     $username,
     $password,
-    $database
+    $database,
+    $port
 );
 
 if($connection -> connect_error) {
     echo ("Bad connection");
 } else {
     echo ("Connection successfully");
-}
-
+};
 
 
 ?>
