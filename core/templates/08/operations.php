@@ -50,7 +50,7 @@ $pdf -> Cell(50, 10, 'Detalle', 1, 0, 'C', true);
 $pdf -> SetFillColor(0,0,0);
 $pdf -> Cell(50, 10, 'Monto', 1, 1, 'C', true);
 
-# c STEP: WE DESIGN BODY OF THE TABLE
+# STEP: WE DESIGN BODY OF THE TABLE
 $pdf -> Cell(50, 10, 'Precio unitario', 1, 0, 'C');
 $pdf -> Cell(50, 10, "$quantity unidades", 1, 0, 'C');
 $pdf -> Cell(50, 10, "$price soles", 1, 1, 'C');
